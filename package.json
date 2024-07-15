@@ -1,0 +1,22 @@
+{
+  "name": "messenger",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "start": "vite build --port 3000 && vite preview --port 3000",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1",
+    "handlebars": "^4.7.8",
+    "vite-plugin-handlebars": "^2.0.0",
+    "@types/node": "20.14.10"
+  }
+}

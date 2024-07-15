@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script type="module" src="error.ts"></script>
+    <title>Error!</title>
+  </head>
+  <body>
+    <main>
+      <div class="page">
+        <div class="form">
+          <div class="form__title">
+            {{> error name="500" description="Мы уже фиксим"}}
+          </div>
+          <div class="form__buttons">
+            {{> button title="Назад к чатам" text="Назад к чатам" name="back"
+            class="button__transparent" onClick="goTo('chats')"}}
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

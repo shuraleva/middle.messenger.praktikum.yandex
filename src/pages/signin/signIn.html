@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script type="module" src="signIn.ts"></script>
+    <title>Sign In</title>
+  </head>
+  <body>
+    <main>
+      <div class="page">
+        <div class="form">
+          <div class="form__title">Вход</div>
+          {{> field text="Логин" name="login" type="text"
+          value="aaa@yandex.ru"}} {{> field text="Пароль" name="password"
+          type="password" value="aaa@yandex.ru"}}
+          <div class="form__buttons">
+            {{> button title="Sign in" text="Sign in" name="singIn"}} {{> button
+            title="Sign up" text="Sign up" name="singUp"
+            class="button__transparent" onClick="goTo('signUp')"}}
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
