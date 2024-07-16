@@ -5,6 +5,8 @@ const defineConfig = ({
     plugins: [handlebars({ partialDirectory: resolve(__dirname, 'src/partials') })],
     build: {
         outDir: resolve(__dirname, 'dist'),
+        emptyOutDir: true,
+        assetsInlineLimit: Number.MAX_SAFE_INTEGER,
         rollupOptions: {
             input: {
                 index: resolve(__dirname, './index.html'),
