@@ -10,8 +10,8 @@ const defineConfig = ({
         rollupOptions: {
             input: {
                 index: resolve(__dirname, './index.html'),
-                signin: resolve(__dirname, './src/pages/signin/signin.html'),
-                signup: resolve(__dirname, './src/pages/signup/signup.html'),
+                signin: resolve(__dirname, './src/pages/signin/signIn.html'),
+                signup: resolve(__dirname, './src/pages/signup/signUp.html'),
                 notFound: resolve(__dirname, './src/pages/errors/notFound.html'),
                 serverError: resolve(__dirname, './src/pages/errors/serverError.html'),
                 userProfile: resolve(__dirname, './src/pages/userProfile/userProfile.html'),
