@@ -1,22 +1,13 @@
-import { resolve } from 'path';
+import { resolve } from "path";
 import handlebars from 'vite-plugin-handlebars';
 
-const pageData = {
-    "index.html": {text: "Messenger" }
-};
-
 const defineConfig = ({
-    plugins: [handlebars({ 
-        partialDirectory: resolve(__dirname, 'src/partials'), 
-        context(pagePath: string) {
-            return pageData[pagePath];
-        }
-    })],
+    plugins: [handlebars({ partialDirectory: resolve(__dirname, 'src/partials') })],
     build: {
         outDir: resolve(__dirname, 'dist'),
         rollupOptions: {
             input: {
-                index: resolve(__dirname, './src/index.html'),
+                index: resolve(__dirname, './index.html'),
                 signin: resolve(__dirname, './src/pages/signin/signin.html'),
                 signup: resolve(__dirname, './src/pages/signup/signup.html'),
                 notFound: resolve(__dirname, './src/pages/errors/notFound.html'),

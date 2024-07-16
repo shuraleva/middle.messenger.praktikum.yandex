@@ -1,35 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script type="module" src="userProfile.ts"></script>
-    <title>Настройки пользователя</title>
-  </head>
-  <body>
-    <main>
-      <div class="page">
-        <div class="form">
+{{#> page title="Профиль" script="userProfile.ts" }}
+  <main>
+    <div class="page-centered">
+      {{#> form title="Tatyana" withImage=true }}
+        {{#*inline "image" }}
           {{> avatar src="../../../static/avatar.svg"}}
-          <div class="form__title">Tatyana</div>
-          {{> display-field label="Имя" value="Tatyana" }} {{> display-field
-          label="Отчество" value="Mikhailovna" }} {{> display-field label="Имя в
-          чате" value="Tatyana Mikhailovna" }} {{> display-field label="Email"
-          value="aaa@yandex.ru" }} {{> display-field label="Пароль"
-          value="aaa@yandex.ru" }} {{> display-field label="Логин"
-          value="myBestLogin" }} {{> display-field label="Телефон"
-          value="89099090909" }}
-          <div class="form__buttons">
-            {{> button title="Изменить данные" text="Изменить данные"
-            class="button__transparent" name="changeUserProfile"
-            onClick="goTo('userProfileEdit')" }} {{> button title="Сменить
-            пароль" text="Сменить пароль" class="button__transparent"
-            name="changePassword" onClick="goTo('userPasswordEdit')"}} {{>
-            button title="Изменить аватар" text="Изменить аватар"
-            class="button__transparent" name="changeAvatar"
-            onClick="goTo('userAvatarEdit')" }}
-          </div>
-        </div>
-      </div>
-    </main>
-  </body>
-</html>
+        {{/inline}}
+        {{#*inline "content"}}
+          {{> display-field label="Имя" value="Tatyana" }}
+          {{> display-field label="Фамилия" value="Ivanova" }}
+          {{> display-field label="Имя в чате" value="Tatyana Mikhailovna" }}
+          {{> display-field label="Email" value="aaa@yandex.ru" }}
+          {{> display-field label="Логин" value="myBestLogin"}}
+          {{> display-field label="Телефон" value="89099090909" }}
+        {{/inline}}
+        {{#*inline "buttons"}}
+          {{> button text="Изменить данные" class="button__transparent" name="changeUserProfile" onClick="goTo('userProfileEdit')"}}
+          {{> button text="Сменить пароль" class="button__transparent" name="changePassword" onClick="goTo('userPasswordEdit')"}}
+          {{> button text="Изменить аватар" class="button__transparent" name="avatar" onClick="goTo('userAvatarEdit')"}}
+        {{/inline}}
+      {{/form}}
+    </div>
+  </main>
+{{/page}}

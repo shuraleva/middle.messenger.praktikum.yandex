@@ -1,0 +1,18 @@
+.chat-item {
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px;
+    height: 70px;
+    max-height: 70px;
+
+    &:last-of-type {
+        border-bottom: 0;
+    }
+}
+
+.chat-item--selected {
+    background-color: var(--selected-color);
+}
+
+.chat-item__user-name {
+    font-weight: 600;
+}

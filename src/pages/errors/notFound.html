@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script type="module" src="error.ts"></script>
-    <title>Not Found</title>
-  </head>
-  <body>
-    <main>
-      <div class="page">
-        <div class="form">
-          <div class="form__title">
-            {{> error name="404" description="Не туда попали"}}
-          </div>
-          <div class="form__buttons">
-            {{> button title="Назад к чатам" text="Назад к чатам" name="back"
-            class="button__transparent" onClick="goTo('chats')"}}
-          </div>
-        </div>
-      </div>
-    </main>
-  </body>
-</html>
+{{#> page title="Not Found" script="error.ts" }}
+  <main>
+    <div class="page-centered">
+      {{#> form title="" }}
+        {{#*inline "content"}}
+          {{> error name="404" description="Не туда попали"}}
+        {{/inline}}
+        {{#*inline "buttons"}}
+          {{> button title="Назад к чатам" text="Назад к чатам" name="back"
+        class="button__transparent" onClick="goTo('chats')"}}
+        {{/inline}}
+      {{/form}}
+    </div>
+  </main>
+{{/page}}

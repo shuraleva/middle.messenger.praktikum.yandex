@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "start": "vite build --port 3000 && vite preview --port 3000",
+    "start": "vite build && vite preview --port 3000",
     "build": "vite build",
     "preview": "vite preview"
   },

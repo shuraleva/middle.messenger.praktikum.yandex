@@ -1,34 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script type="module" src="userProfile.ts"></script>
-    <title>Изменить данные пользователя</title>
-  </head>
-  <body>
-    <main>
-      <div class="page">
-        <div class="form">
+{{#> page title="Изменить данные пользователя" script="userProfile.ts" }}
+  <main>
+    <div class="page-centered">
+      {{#> form title="Редактировать профиль" withImage=true }}
+        {{#*inline "image" }}
           {{> avatar src="../../../static/avatar.svg"}}
-          <div class="form__title">Редактировать профиль:</div>
-          {{> field text="Имя" name="first_name" type="text" value="Tatyana" }} 
-
-          {{> field text="Фамилия" name="second_name" type="text" value="Mikhailovna" }} 
-
-          {{> field text="Имя в чате" name="display_name" type="text" value="Tatyana Mikhailovna" }} 
-          
-          {{> field text="Email" name="email" type="text" value="aaa@yandex.ru" }} 
-
-          {{> field text="Логин" name="login" type="text" value="myBestLogin" }} 
-
+        {{/inline}}
+        {{#*inline "content"}}
+          {{> field text="Имя" name="first_name" type="text" value="Tatyana" }}
+          {{> field text="Фамилия" name="second_name" type="text" value="Mikhailovna" }}
+          {{> field text="Имя в чате" name="display_name" type="text" value="Tatyana Mikhailovna" }}
+          {{> field text="Email" name="email" type="text" value="aaa@yandex.ru" }}
+          {{> field text="Логин" name="login" type="text" value="myBestLogin" }}
           {{> field text="Телефон" name="phone" type="text" value="89099090909" }}
-          <div class="form__buttons">
-            {{> button title="Сохранить изменения" text="Сохранить изменения"
-            class="button__transparent" name="saveChanges" }} 
-            {{> button title="В профиль" text="В профиль" class="button__transparent" name="back" onClick="goTo('userProfile')" }}
-          </div>
-        </div>
-      </div>
-    </main>
-  </body>
-</html>
+        {{/inline}}
+        {{#*inline "buttons"}}
+          {{> button text="Сохранить изменения" name="saveChanges" onClick="goTo('userProfile')"}}
+          {{> button text="В профиль" class="button__transparent" name="back" onClick="goTo('userProfile')" }}
+        {{/inline}}
+      {{/form}}
+    </div>
+  </main>
+{{/page}}

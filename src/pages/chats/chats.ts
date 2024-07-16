@@ -1,1 +1,2 @@
-import './chats.css';
+import "./chats.css";
+import "../../main";
