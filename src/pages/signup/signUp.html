@@ -1,0 +1,18 @@
+{{#> page title="Регистрация" script="signUp.ts" }}
+<main>
+  <div class="page-centered">
+    {{#> form title="Регистрация" }}
+    {{#*inline "content"}}
+      {{> field text="Имя" name="first_name" type="text" value="Tatyana" }}
+      {{> field text="Фамилия" name="second_name" type="text" value="Ivanova" }}
+      {{> field text="Email" name="email" type="text" value="aaa@yandex.ru" }}
+      {{> field text="Пароль" name="password" type="password" value="aaa@yandex.ru" }}
+      {{> field text="Логин" name="phone" type="text" value="myBestLogin" }}
+    {{/inline}}
+    {{#*inline "buttons"}}
+        {{> button text="Зарегистрироваться" name="signup" }}
+    {{/inline}}
+    {{/form}}
+  </div>
+</main>
+{{/page}}

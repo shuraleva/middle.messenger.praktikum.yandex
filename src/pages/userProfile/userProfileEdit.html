@@ -1,0 +1,23 @@
+{{#> page title="Изменить данные пользователя" script="userProfile.ts" }}
+  <main>
+    <div class="page-centered">
+      {{#> form title="Редактировать профиль" withImage=true }}
+        {{#*inline "image" }}
+          {{> avatar src="../../../static/avatar.svg"}}
+        {{/inline}}
+        {{#*inline "content"}}
+          {{> field text="Имя" name="first_name" type="text" value="Tatyana" }}
+          {{> field text="Фамилия" name="second_name" type="text" value="Mikhailovna" }}
+          {{> field text="Имя в чате" name="display_name" type="text" value="Tatyana Mikhailovna" }}
+          {{> field text="Email" name="email" type="text" value="aaa@yandex.ru" }}
+          {{> field text="Логин" name="login" type="text" value="myBestLogin" }}
+          {{> field text="Телефон" name="phone" type="text" value="89099090909" }}
+        {{/inline}}
+        {{#*inline "buttons"}}
+          {{> button text="Сохранить изменения" name="saveChanges" type="submit" onClick="goTo('userProfile')"}}
+          {{> button text="В профиль" class="button__transparent" name="back" type="button" onClick="goTo('userProfile')" }}
+        {{/inline}}
+      {{/form}}
+    </div>
+  </main>
+{{/page}}

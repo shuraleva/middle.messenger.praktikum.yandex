@@ -1,0 +1,10 @@
+<form class="form">
+    {{#if withImage}}
+        {{> image }}
+    {{/if}}
+    <div class="form__title">{{title}}</div>
+    {{> content }}
+    <div class="form__buttons">
+        {{> buttons}}
+    </div>
+</form>

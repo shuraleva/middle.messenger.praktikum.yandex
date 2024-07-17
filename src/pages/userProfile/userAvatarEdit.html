@@ -1,0 +1,39 @@
+{{#> page title="Изменить аватар" script="userProfile.ts" }}
+  <main>
+    <div class="page-centered">
+      {{#> form title="Tatyana" withImage=true }}
+        {{#*inline "image" }}
+          {{> avatar src="../../../static/avatar.svg"}}
+        {{/inline}}
+        {{#*inline "content"}}
+          {{> display-field label="Имя" value="Tatyana" }}
+          {{> display-field label="Фамилия" value="Ivanova" }}
+          {{> display-field label="Имя в чате" value="Tatyana Mikhailovna" }}
+          {{> display-field label="Email" value="aaa@yandex.ru" }}
+          {{> display-field label="Логин" value="myBestLogin" }}
+          {{> display-field label="Телефон" value="89099090909" }}
+        {{/inline}}
+        {{#*inline "buttons"}}
+          {{> button text="Изменить данные" type="button" class="button__transparent" name="changeUserProfile" onClick="goTo('userProfileEdit')" }}
+          {{> button text="Сменить пароль" type="button" class="button__transparent" name="changePassword" onClick="goTo('userPasswordEdit')"}}
+          {{> button text="Изменить аватар" type="button" class="button__transparent" name="changeAvatar" onClick="goTo('userAvatarEdit')" }}
+        {{/inline}}
+      {{/form}}
+    </div>
+    <div class="modal">
+      <div class="modal__content">
+        {{#> form title="Загрузите файл" withImage=true }}
+          {{#*inline "image" }}
+            {{> avatar src="../../../static/avatar.svg"}}
+          {{/inline}}
+          {{#*inline "content"}}
+            {{> button text="Выбор файла" class="button__transparent" type="button" name="avatar" }}
+          {{/inline}}
+          {{#*inline "buttons"}}
+            {{> button text="Сохранить" name="save" type="submit" onClick="goTo('userProfile')" }}
+          {{/inline}}
+        {{/form}}
+      </div>
+    </div>
+  </main>
+{{/page}}

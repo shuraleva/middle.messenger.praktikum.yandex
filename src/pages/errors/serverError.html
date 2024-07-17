@@ -1,0 +1,14 @@
+{{#> page title="Error!" script="error.ts" }}
+  <main>
+    <div class="page-centered">
+      {{#> form title="" }}
+        {{#*inline "content"}}
+          {{> error name="500" description="Мы уже фиксим"}}
+        {{/inline}}
+        {{#*inline "buttons"}}
+          {{> button text="Назад к чатам" name="back" class="button__transparent" type="button" onClick="goTo('chats')"}}
+        {{/inline}}
+      {{/form}}
+    </div>
+  </main>
+{{/page}}

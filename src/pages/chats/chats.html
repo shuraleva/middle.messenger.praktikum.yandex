@@ -1,0 +1,29 @@
+{{#> page title="Чаты" script="chats.ts" }}
+<main>
+  <div class="chats">
+    <div class="chats-list">
+      <div class="chats-list__header">
+        Список чатов
+      </div>
+      <div class="chats-list__content">
+        {{> chat-item userName="Андрей" message="HelloWorld!" }}
+        {{> chat-item userName="News" message="No news!" class="chat-item--selected"}}
+        {{> chat-item userName="Test" message="Привет, как дела, что нового?"}}
+      </div>
+    </div>
+    <div class="chats-chat">
+      <div class="chats-chat__header">
+        Андрей
+      </div>
+      <div class="chats-chat__content">
+        В разработке.
+        <div>{{> button title="В профиль" text="В профиль" class="button__transparent" name="back"
+          onClick="goTo('userProfile')" }}</div>
+      </div>
+      <div class="chats-chat__input-container">
+        <input class="chats-chat__input" value="Сообщение" name="message" />
+      </div>
+    </div>
+  </div>
+</main>
+{{/page}}
