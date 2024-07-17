@@ -14,9 +14,9 @@
           {{> display-field label="Телефон" value="89099090909" }}
         {{/inline}}
         {{#*inline "buttons"}}
-          {{> button text="Изменить данные" class="button__transparent" name="changeUserProfile" onClick="goTo('userProfileEdit')" }}
-          {{> button text="Сменить пароль" class="button__transparent" name="changePassword" onClick="goTo('userPasswordEdit')"}}
-          {{> button text="Изменить аватар" class="button__transparent" name="changeAvatar" onClick="goTo('userAvatarEdit')" }}
+          {{> button text="Изменить данные" type="button" class="button__transparent" name="changeUserProfile" onClick="goTo('userProfileEdit')" }}
+          {{> button text="Сменить пароль" type="button" class="button__transparent" name="changePassword" onClick="goTo('userPasswordEdit')"}}
+          {{> button text="Изменить аватар" type="button" class="button__transparent" name="changeAvatar" onClick="goTo('userAvatarEdit')" }}
         {{/inline}}
       {{/form}}
     </div>
@@ -27,10 +27,10 @@
             {{> avatar src="../../../static/avatar.svg"}}
           {{/inline}}
           {{#*inline "content"}}
-            {{> button text="Выбор файла" class="button__transparent" name="avatar" }}
+            {{> button text="Выбор файла" class="button__transparent" type="button" name="avatar" }}
           {{/inline}}
           {{#*inline "buttons"}}
-            {{> button text="Сохранить" name="save" onClick="goTo('userProfile')" }}
+            {{> button text="Сохранить" name="save" type="submit" onClick="goTo('userProfile')" }}
           {{/inline}}
         {{/form}}
       </div>

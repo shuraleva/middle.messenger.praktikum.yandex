@@ -14,8 +14,8 @@
           {{> field text="Телефон" name="phone" type="text" value="89099090909" }}
         {{/inline}}
         {{#*inline "buttons"}}
-          {{> button text="Сохранить изменения" name="saveChanges" onClick="goTo('userProfile')"}}
-          {{> button text="В профиль" class="button__transparent" name="back" onClick="goTo('userProfile')" }}
+          {{> button text="Сохранить изменения" name="saveChanges" type="submit" onClick="goTo('userProfile')"}}
+          {{> button text="В профиль" class="button__transparent" name="back" type="button" onClick="goTo('userProfile')" }}
         {{/inline}}
       {{/form}}
     </div>

@@ -7,8 +7,8 @@
           {{> field text="Пароль" name="password" type="password" value="aaa@yandex.ru"}}
         {{/inline}}
         {{#*inline "buttons"}}
-          {{> button text="Войти" name="singIn"}}
-          {{> button text="Зарегистрироваться" name="singUp" class="button__transparent" onClick="goTo('signUp')"}}
+          {{> button text="Войти" type="submit" name="singIn"}}
+          {{> button text="Зарегистрироваться" name="singUp" type="button" class="button__transparent" onClick="goTo('signUp')"}}
         {{/inline}}
       {{/form}}
     </div>
