@@ -1,47 +1,44 @@
-import SignInTmpl from "./signIn.hbs?raw";
+import UserPasswordEditTmpl from "./userPasswordEdit.hbs?raw";
 import { Component, IComponentProps, PropsAndChildren } from "../../utils/Block";
 import Button from "../../components/button";
 import Field from "../../components/field";
 import Form from "../../components/form";
 
-export default class SignInForm extends Component<PropsAndChildren> {
+export default class PasswordEditForm extends Component<PropsAndChildren> {
     constructor(props: IComponentProps<PropsAndChildren>) {
         super(props);
     }
 
     render(): DocumentFragment {
-
-        console.log("render SignInForm", this._props);
-        return this.compile(SignInTmpl, { ...this._props });
+        return this.compile(UserPasswordEditTmpl, { ...this._props });
     }
 }
 
 const signInButton = new Button({
     tagName: "div",
     propsAndChildren: {
-        name: "signIn", text: "Вход", type: "submit"
+        name: "save", text: "Сохранить изменения", type: "submit"
     }
 });
 
 const goToSignUpButton = new Button({
     tagName: "div",
     propsAndChildren: {
-        name: "signUp", text: "Зарегистрироваться", type: "button", class: "button__transparent", events: {
+        name: "profile", text: "В профиль", type: "button", class: "button__transparent", events: {
             click: e => {
-                e.preventDefault(); e.stopPropagation(); window.location.href = "/signUp";
+                e.preventDefault(); e.stopPropagation(); window.location.href = "/profile";
             }
         }
     }
 });
 
-const emailField = new Field({ tagName: "div", propsAndChildren: { type: "email", name: "email", text: "Email", value: "" } });
-const passwordField = new Field({ tagName: "div", propsAndChildren: { type: "password", name: "password", text: "Пароль" } });
+const oldField = new Field({ tagName: "div", propsAndChildren: { type: "password", name: "oldPassword", text: "Старый пароль" } });
+const newField = new Field({ tagName: "div", propsAndChildren: { type: "password", name: "newPassword", text: "Новый пароль" } });
 
 const form = new Form({
     tagName: "form",
     propsAndChildren: {
         title: "Вход",
-        class: "form",
         attr: {
             class: "form"
         },
@@ -50,13 +47,13 @@ const form = new Form({
             e.preventDefault(); 
             e.stopPropagation();
         }},
-        content: [emailField, passwordField],
+        content: [oldField, newField],
         buttons: [signInButton, goToSignUpButton]
     }
 });
 
-export const renderSignInForm = () =>
-    new SignInForm({
+export const renderEditPasswordForm = () =>
+    new PasswordEditForm({
         tagName: "main",
         propsAndChildren: {
             form: form
