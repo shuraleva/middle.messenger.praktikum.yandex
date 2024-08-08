@@ -4,6 +4,8 @@ import Field from "../../components/field";
 import Form from "../../components/form";
 import "../../main";
 import { Component, IComponentProps, PropsAndChildren } from "../../utils/Block";
+import { logFormData } from "../../utils/helpers";
+import { inputValidator } from "../../utils/validator";
 import UserProfileEditTmpl from "./userProfileEdit.hbs?raw";
 
 class UserProfileEditForm extends Component<PropsAndChildren> {
@@ -16,25 +18,20 @@ class UserProfileEditForm extends Component<PropsAndChildren> {
     }
 }
 
-const firstNameField = new Field({ tagName: "div", propsAndChildren: { text: "Имя", name: "first_name", type: "text", value: "Tatyana" } });
-const secondNameField = new Field({ tagName: "div", propsAndChildren: { text: "Фамилия", name: "second_name", type: "text", value: "Ivanova" } });
-const displayNameField = new Field({ tagName: "div", propsAndChildren: { text: "Имя в чате", name: "display_name", type: "text", value: "Tatyana Mikhailovna" } });
-const emailField = new Field({ tagName: "div", propsAndChildren: { text: "Email", name: "email", type: "email", value: "aaa@yandex.ru" } });
-const loginField = new Field({ tagName: "div", propsAndChildren: { text: "Логин", name: "login", type: "text", value: "myBestLogin" } });
-const phoneField = new Field({ tagName: "div", propsAndChildren: { text: "Телефон", name: "phone", type: "text", value: "89099090909" } });
+const firstNameField = new Field({ tagName: "div", propsAndChildren: { text: "Имя", name: "first_name", type: "text", value: "Tatyana", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] } } });
+const secondNameField = new Field({ tagName: "div", propsAndChildren: { text: "Фамилия", name: "second_name", type: "text", value: "Ivanova", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] } } });
+const displayNameField = new Field({ tagName: "div", propsAndChildren: { text: "Имя в чате", name: "display_name", type: "text" } });
+const emailField = new Field({ tagName: "div", propsAndChildren: { text: "Email", name: "email", type: "email", value: "aaa@yandex.ru", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] } } });
+const loginField = new Field({ tagName: "div", propsAndChildren: { text: "Логин", name: "login", type: "text", value: "myBestLogin", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] } } });
+const phoneField = new Field({ tagName: "div", propsAndChildren: { text: "Телефон", name: "phone", type: "text", value: "89099090909", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] } } });
 
 const submitButton = new Button({
     tagName: "div",
     propsAndChildren: {
-        name: "saveChanges", text: "Сохранить изменения", type: "submit", events: {
-            click: e => {
-                e.preventDefault();
-                e.stopPropagation();
-                // todo
-            }
-        }
+        name: "saveChanges", text: "Сохранить изменения", type: "submit"
     }
 });
+
 const toProfileButton = new Button({
     tagName: "div",
     propsAndChildren: {
@@ -58,7 +55,12 @@ const form = new Form({
         title: "Редактирование",
         content: [firstNameField, secondNameField, displayNameField, emailField, loginField, phoneField],
         buttons: [submitButton, toProfileButton],
-        image: avatar()
+        image: avatar(),
+        events: {
+            submit: (e: Event) => {
+                logFormData(e.target as HTMLFormElement);
+            }
+        }
     }
 });
 
@@ -68,4 +70,4 @@ export const renderUserEditProfile = () =>
         propsAndChildren: {
             form: form
         }
-    }).render();
+    }).element;

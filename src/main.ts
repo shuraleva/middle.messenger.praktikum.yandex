@@ -18,25 +18,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (root) {
         switch (url) {
             case "/signIn":
-                root.replaceChildren(renderSignInForm());
+                root.replaceChildren(renderSignInForm()!);
                 break;
             case "/signUp":
-                root.replaceChildren(renderSignUpForm());
+                root.replaceChildren(renderSignUpForm()!);
                 break;
             case "/404":
-                root.replaceChildren(renderErrorComponent("404"));
+                root.replaceChildren(renderErrorComponent("404")!);
                 break;
             case "/500":
-                root.replaceChildren(renderErrorComponent("500"));
+                root.replaceChildren(renderErrorComponent("500")!);
                 break;
             case "/profile":
-                root.replaceChildren(renderUserProfile());
+                root.replaceChildren(renderUserProfile()!);
                 break;
             case "/editProfile":
-                root.replaceChildren(renderUserEditProfile());
+                root.replaceChildren(renderUserEditProfile()!);
                 break;
             case "/editPassword":
-                root.replaceChildren(renderEditPasswordForm());
+                root.replaceChildren(renderEditPasswordForm()!);
                 break;
             case "/chats": 
                 root.replaceChildren(renderChatsComponent() as Node)

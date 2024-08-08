@@ -1,4 +1,4 @@
-type TCallback = (...args: any) => void;
+type TCallback = (...args: unknown[]) => void;
 
 type TListenersObject = {
   [event: string]: Array<TCallback>;
@@ -28,7 +28,6 @@ export default class EventBus {
   }
 
   emit(event: string, ...args: unknown[]) {
-    console.log(event);
     if (!this.listeners[event]) {
         throw new Error(`Нет события: ${event}`);
     }

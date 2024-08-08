@@ -4,6 +4,7 @@ import DisplayField from "../../components/displayField";
 import Form from "../../components/form";
 import "../../main";
 import { Component, IComponentProps, PropsAndChildren } from "../../utils/Block";
+import { avatarForm, renderAvatarEditProfile } from "./userAvatarEdit";
 import UserProfileTmpl from "./userProfile.hbs?raw";
 
 class UserProfileDisplayForm extends Component<PropsAndChildren> {
@@ -47,13 +48,16 @@ const changePasswordButton = new Button({
         }
     }
 });
+
 const avatarButton = new Button({
     tagName: "div",
     propsAndChildren: {
         name: "signUp", text: "Изменить аватар", type: "button", class: "button__transparent", events: {
             click: e => {
                 e.preventDefault(); 
-                e.stopPropagation(); 
+                e.stopPropagation();
+                userProfile._element?.append(renderAvatarEditProfile()!);
+                avatarForm.show();
             }
         }
     }
@@ -73,12 +77,13 @@ const form = new Form({
     }
 });
 
+const userProfile = new UserProfileDisplayForm({
+    tagName: "main",
+    propsAndChildren: {
+        form: form
+    }
+});
+
 export const renderUserProfile = () => {
-    const f = new UserProfileDisplayForm({
-        tagName: "main",
-        propsAndChildren: {
-            form: form
-        }
-    });
-    return f.render();
+    return userProfile.element;
 }

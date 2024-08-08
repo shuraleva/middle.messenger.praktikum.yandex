@@ -79,4 +79,4 @@ export const renderErrorComponent = (number: string) =>
                 }
             })
         }
-    }).render();
+    }).element;

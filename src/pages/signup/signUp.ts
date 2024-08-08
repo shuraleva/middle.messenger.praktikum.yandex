@@ -3,6 +3,8 @@ import { Component, IComponentProps, PropsAndChildren } from "../../utils/Block"
 import Button from "../../components/button";
 import Field from "../../components/field";
 import Form from "../../components/form";
+import { inputValidator } from "../../utils/validator";
+import { logFormData } from "../../utils/helpers";
 
 export default class SignUpForm extends Component<PropsAndChildren> {
     constructor(props: IComponentProps<PropsAndChildren>) {
@@ -21,11 +23,11 @@ const signUpButton = new Button({
     }
 });
 
-const firstNameField = new Field({ tagName: "div", propsAndChildren: { type: "text", name: "first_name", text: "Имя" } });
-const secondNameField = new Field({ tagName: "div", propsAndChildren: { type: "text", name: "second_name", text: "Фамилия" } });
-const emailField = new Field({ tagName: "div", propsAndChildren: { type: "email", name: "email", text: "Email" } });
-const passwordField = new Field({ tagName: "div", propsAndChildren: { type: "password", name: "password", text: "Пароль" } });
-const loginField = new Field({ tagName: "div", propsAndChildren: { type: "text", name: "login", text: "Логин" } });
+const firstNameField = new Field({ tagName: "div", propsAndChildren: { type: "text", name: "first_name", text: "Имя", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] }   } });
+const secondNameField = new Field({ tagName: "div", propsAndChildren: { type: "text", name: "second_name", text: "Фамилия", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] }  } });
+const emailField = new Field({ tagName: "div", propsAndChildren: { type: "email", name: "email", text: "Email", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] }   } });
+const passwordField = new Field({ tagName: "div", propsAndChildren: { type: "password", name: "password", text: "Пароль", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] }   } });
+const loginField = new Field({ tagName: "div", propsAndChildren: { type: "text", name: "login", text: "Логин", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] }    } });
 
 const form = new Form({
     tagName: "form",
@@ -35,11 +37,9 @@ const form = new Form({
         attr: {
             class: "form"
         },
-        //todo
         events: {
             submit: (e: Event) => {
-                e.preventDefault(); 
-                e.stopPropagation();
+                logFormData(e.target as HTMLFormElement);
         }},
         content: [firstNameField, secondNameField, emailField, passwordField, loginField],
         buttons: [signUpButton]
@@ -52,4 +52,4 @@ export const renderSignUpForm = () =>
         propsAndChildren: {
             form: form
         }
-    }).render();
+    }).element;

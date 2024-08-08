@@ -3,6 +3,8 @@ import { Component, IComponentProps, PropsAndChildren } from "../../utils/Block"
 import Button from "../../components/button";
 import Field from "../../components/field";
 import Form from "../../components/form";
+import { inputValidator } from "../../utils/validator";
+import { logFormData } from "../../utils/helpers";
 
 export default class SignInForm extends Component<PropsAndChildren> {
     constructor(props: IComponentProps<PropsAndChildren>) {
@@ -34,8 +36,8 @@ const goToSignUpButton = new Button({
     }
 });
 
-const emailField = new Field({ tagName: "div", propsAndChildren: { type: "email", name: "email", text: "Email", value: "" } });
-const passwordField = new Field({ tagName: "div", propsAndChildren: { type: "password", name: "password", text: "Пароль" } });
+const emailField = new Field({ tagName: "div", propsAndChildren: { type: "email", name: "email", text: "Email", value: "", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] } } });
+const passwordField = new Field({ tagName: "div", propsAndChildren: { type: "password", name: "password", text: "Пароль", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] } } });
 
 const form = new Form({
     tagName: "form",
@@ -45,11 +47,11 @@ const form = new Form({
         attr: {
             class: "form"
         },
-        //todo
-        events: {submit: (e: Event) => {
-            e.preventDefault(); 
-            e.stopPropagation();
-        }},
+        events: {
+            submit: (e: Event) => {
+                logFormData(e.target as HTMLFormElement);
+            }
+        },
         content: [emailField, passwordField],
         buttons: [signInButton, goToSignUpButton]
     }
@@ -61,4 +63,4 @@ export const renderSignInForm = () =>
         propsAndChildren: {
             form: form
         }
-    }).render();
+    }).element;

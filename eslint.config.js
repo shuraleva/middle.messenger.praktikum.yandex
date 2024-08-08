@@ -1,7 +1,6 @@
 import globals from "globals";
 import js from "@eslint/js";
-import tseslint, { config } from "typescript-eslint";
-import { resolve } from "path";
+import tseslint from "typescript-eslint";
 
 export const lintConfig = tseslint.config(
     js.configs.recommended,
@@ -21,6 +20,7 @@ export const lintConfig = tseslint.config(
         "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/no-unused-expressions": "warn",
         "no-empty-pattern": "warn",
+        "@typescript-eslint/no-unsafe-function-type": "warn",
       },
     }
   )

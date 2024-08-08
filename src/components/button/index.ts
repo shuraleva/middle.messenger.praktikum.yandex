@@ -19,7 +19,6 @@ class Button extends Component<IButtonProps> {
         super(props);
     }
     render() {
-        console.log("Render Button")
         return this.compile(Buttontmpl, this._props);
     }
 }

@@ -3,6 +3,8 @@ import { Component, IComponentProps, PropsAndChildren } from "../../utils/Block"
 import Button from "../../components/button";
 import Field from "../../components/field";
 import Form from "../../components/form";
+import { inputValidator } from "../../utils/validator";
+import { logFormData } from "../../utils/helpers";
 
 export default class PasswordEditForm extends Component<PropsAndChildren> {
     constructor(props: IComponentProps<PropsAndChildren>) {
@@ -33,7 +35,7 @@ const goToSignUpButton = new Button({
 });
 
 const oldField = new Field({ tagName: "div", propsAndChildren: { type: "password", name: "oldPassword", text: "Старый пароль" } });
-const newField = new Field({ tagName: "div", propsAndChildren: { type: "password", name: "newPassword", text: "Новый пароль" } });
+const newField = new Field({ tagName: "div", propsAndChildren: { type: "password", name: "newPassword", text: "Новый пароль", events: { blur: [(e: Event) => { inputValidator(e.target!) }, true] } } });
 
 const form = new Form({
     tagName: "form",
@@ -42,10 +44,9 @@ const form = new Form({
         attr: {
             class: "form"
         },
-        //todo
-        events: {submit: (e: Event) => {
-            e.preventDefault(); 
-            e.stopPropagation();
+        events: {
+            submit: (e: Event) => {
+            logFormData(e.target as HTMLFormElement);
         }},
         content: [oldField, newField],
         buttons: [signInButton, goToSignUpButton]
@@ -58,4 +59,4 @@ export const renderEditPasswordForm = () =>
         propsAndChildren: {
             form: form
         }
-    }).render();
+    }).element;

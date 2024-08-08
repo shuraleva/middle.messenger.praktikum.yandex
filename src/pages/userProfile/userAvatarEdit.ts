@@ -37,8 +37,7 @@ const submitButton = new Button({
             click: e => {
                 e.preventDefault(); 
                 e.stopPropagation(); 
-                // document.removeChild((this as unknown as Component<PropsAndChildren>)._element!);
-                // window.location.href = "/profile";
+                avatarForm.hide();
             }
         }
     }
@@ -58,10 +57,11 @@ const form = new Form({
     }
 });
 
-export const renderAvatarEditProfile = () =>
-    new AvatarEditForm({
-        tagName: "main",
-        propsAndChildren: {
-            form: form
-        }
-    });
+export const avatarForm = new AvatarEditForm({
+    tagName: "main",
+    propsAndChildren: {
+        form: form
+    }
+});
+
+export const renderAvatarEditProfile = () => avatarForm.element;

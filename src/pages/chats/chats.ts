@@ -38,7 +38,7 @@ export default ChatsComponent;
 
 
 export const renderChatsComponent = () => {
-    const chatComponent = new ChatsComponent( {
+    const chatComponent = new ChatsComponent({
         tagName: "main",
         propsAndChildren: {
             chats: [new ChatComponent({
@@ -58,14 +58,17 @@ export const renderChatsComponent = () => {
             input: new ChatInputComponent({
                 tagName: "div",
                 propsAndChildren: {
-                    value: "",                    
+                    value: "",
                     events: {
                         keyup: (e: KeyboardEvent) => {
                             e.preventDefault();
                             const target: HTMLInputElement = e.target as HTMLInputElement;
-                            if (target.name === "message" && e.key === "Enter" )
-                            {
-                                chatComponent.setProps({...chatComponent._props, messages: [...(chatComponent._lists.messages as [] || []), new MessageComponent({propsAndChildren: { text: target.value } })]})
+                            if (!target.value) {
+                                alert("Нельзя отправить пустое сообщение!");
+                                return;
+                            }
+                            if (target.name === "message" && e.key === "Enter") {
+                                chatComponent.setProps({ ...chatComponent._props, messages: [...(chatComponent._lists.messages as [] || []), new MessageComponent({ propsAndChildren: { text: target.value } })] })
                                 target.value = "";
                                 target.focus();
                             }
