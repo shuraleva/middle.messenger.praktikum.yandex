@@ -8,7 +8,7 @@
     padding: 0 30px;
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    box-shadow: 0px 0px 6px 0px var(--border-color);
+    box-shadow: 0 0 6px 0 var(--border-color);
 }
 
 .form__title {

@@ -3,10 +3,12 @@
     border: 1px solid var(--border-color);
     border-radius: 12px;
     margin: 0 20px 10px 10px;
+
     &:first-of-type {
         margin-top: 10px;
     }
 }
+
 .message__date {
 display: flex;
 justify-content: flex-end;
