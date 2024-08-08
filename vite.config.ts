@@ -2,7 +2,7 @@ import { resolve } from "path";
 import handlebars from 'vite-plugin-handlebars';
 
 const defineConfig = ({
-    plugins: [handlebars({ partialDirectory: resolve(__dirname, 'src/partials') })],
+    // plugins: [handlebars({ partialDirectory: resolve(__dirname, 'src/partials') })],
     build: {
         outDir: resolve(__dirname, 'dist'),
         emptyOutDir: true,
@@ -10,15 +10,15 @@ const defineConfig = ({
         rollupOptions: {
             input: {
                 index: resolve(__dirname, './index.html'),
-                signin: resolve(__dirname, './src/pages/signin/signIn.html'),
-                signup: resolve(__dirname, './src/pages/signup/signUp.html'),
-                notFound: resolve(__dirname, './src/pages/errors/notFound.html'),
-                serverError: resolve(__dirname, './src/pages/errors/serverError.html'),
-                userProfile: resolve(__dirname, './src/pages/userProfile/userProfile.html'),
-                userProfileEdit: resolve(__dirname, './src/pages/userProfile/userProfileEdit.html'),
-                userAvatarEdit: resolve(__dirname, './src/pages/userProfile/userAvatarEdit.html'),
-                userPasswordEdit: resolve(__dirname, './src/pages/userProfile/userPasswordEdit.html'),
-                chat: resolve(__dirname, './src/pages/chats/chats.html'),
+                // signin: resolve(__dirname, './src/pages/signin/signIn.html'),
+                // signup: resolve(__dirname, './src/pages/signup/signUp.html'),
+                // notFound: resolve(__dirname, './src/pages/errors/notFound.html'),
+                // serverError: resolve(__dirname, './src/pages/errors/serverError.html'),
+                // userProfile: resolve(__dirname, './src/pages/userProfile/userProfile.html'),
+                // userProfileEdit: resolve(__dirname, './src/pages/userProfile/userProfileEdit.html'),
+                // userAvatarEdit: resolve(__dirname, './src/pages/userProfile/userAvatarEdit.html'),
+                // userPasswordEdit: resolve(__dirname, './src/pages/userProfile/userPasswordEdit.html'),
+                // chat: resolve(__dirname, './src/pages/chats/chats.html'),
             },
         },
     },

@@ -43,10 +43,11 @@
     position: relative;
     display: flex;
     width: 100%;
-    justify-content: center;
     height: auto;
     flex: 1;
-    align-items: center;
+    align-items: end;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .chats-chat__input-container {
